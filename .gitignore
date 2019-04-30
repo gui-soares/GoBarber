@@ -1,0 +1,7 @@
+node_modules
+src/app
+src/config
+src/database
+src/public
+.sequelizerc
+src/routes.js
