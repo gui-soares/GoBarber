@@ -1,19 +1,31 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
 const path = require('path')
+const session = require('express-session')
+const LokiStore = require('connect-loki')(session)
 
 class App {
   constructor () {
     this.express = express()
     this.isDEV = process.env.NODE_ENV !== 'production'
 
-    this.middleware()
+    this.middlewares()
     this.views()
     this.routes()
   }
 
-  middleware () {
+  middlewares () {
     this.express.use(express.urlencoded({ extended: false }))
+    this.express.use(
+      session({
+        store: new LokiStore({
+          path: path.resolve(__dirname, '..', 'tmp', 'sessions.db')
+        }),
+        secret: 'MyAppSecret',
+        resave: true,
+        saveUninitialized: true
+      })
+    )
   }
 
   views () {
