@@ -10,6 +10,7 @@ const guestMiddleware = require('./app/middlewares/guest')
 const UserController = require('./app/controller/userController')
 const SessionController = require('./app/controller/sessionController')
 const DashboardController = require('./app/controller/dashboardController')
+const FileController = require('./app/controller/fileController')
 
 routes.use((req, res, next) => {
   res.locals.flashSuccess = req.flash('success')
@@ -17,6 +18,8 @@ routes.use((req, res, next) => {
 
   return next()
 })
+
+routes.get('/files/:file', FileController.show)
 
 routes.get('/', guestMiddleware, SessionController.create)
 routes.post('/signin', SessionController.store)
