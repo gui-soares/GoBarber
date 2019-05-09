@@ -147,7 +147,7 @@ body {
   text-align: center;
   font-size: 21px;
   color: #444;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .main-wrapper .content a.logout {
@@ -215,6 +215,7 @@ ul.providers {
 .provider strong {
   margin-left: 15px;
   color: #444;
+  font-size: 14px;
 }
 
 .provider a {
@@ -256,6 +257,8 @@ ul.providers {
   margin-bottom: 8px;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 #hours label.disabled {
