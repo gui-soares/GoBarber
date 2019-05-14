@@ -1,10 +1,14 @@
 const { User } = require('../models')
 
 class DashboardController {
-  async index (req, res) {
+  async userIndex (req, res) {
     const providers = await User.findAll({ where: { provider: true } })
 
-    return res.render('dashboard', { providers })
+    return res.render('userDashboard', { providers })
+  }
+
+  providerIndex (req, res) {
+    return res.render('providerDashboard')
   }
 }
 

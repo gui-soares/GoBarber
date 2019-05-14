@@ -17,8 +17,8 @@ class AppointmentController {
       provider_id: provider,
       date
     })
-
-    return res.redirect('/app/dashboard')
+    req.flash('success', 'Agendamento realizado!')
+    return res.redirect('/app/userDashboard')
   }
 }
 

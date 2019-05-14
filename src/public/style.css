@@ -206,7 +206,27 @@ ul.providers {
   align-items: center;
 }
 
+.provider div span {
+  font-size: 11px;
+}
+
+.provider span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .provider img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.user-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.user-img img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -293,4 +313,23 @@ ul.providers {
 
 .main-wrapper .content form button:hover {
   background: #634dac;
+}
+
+.main-wrapper .content a.cancel {
+  margin-top: 10px;
+  background: #de6d6d;
+  text-decoration: none;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  border: 0;
+  color: #fff;
+}
+
+.main-wrapper .content a.cancel:hover {
+  background: #c15858;
 }

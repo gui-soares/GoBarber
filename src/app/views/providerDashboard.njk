@@ -1,0 +1,30 @@
+{% extends "_layouts/default.njk" %}
+
+
+{% block body %}
+
+<div class="content">
+  <div class="user-img">
+    <img src= "/files/{{ user.avatar }}" />
+  </div>
+  <strong>Olá, {{ user.name }} </strong>
+  <p>Verifique sua agenda:</p>
+    <input type="text" class="flatpickr" placeholder="Escolha uma data"/>
+    <ul id="schedule" class="providers">
+    </ul>
+  <a href="/app/logout" class="logout">Sair</a>
+</div>
+<script type="text/javascript">
+      flatpickr('.flatpickr', {
+        minDate: new Date(),
+        dateFormat: 'd/m/Y',
+        onChange: function(date) {
+          fetch(`/app/schedule/?date=${date[0].getTime()}`).then(function (response) {
+            response.text().then(function (html) {
+             document.getElementById('schedule').innerHTML = html
+            })
+          })
+          }
+      })
+    </script>
+{% endblock %}

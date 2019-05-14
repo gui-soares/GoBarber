@@ -4,9 +4,12 @@
 {% block body %}
 
 <div class="content">
+  <div class="user-img">
+    <img src= "/files/{{ user.avatar }}" />
+  </div>
   <strong>Olá, {{ user.name }} </strong>
   <p>Inicie um agendamento escolhendo um profissional abaixo:</p>
-
+  {% include "_partials/flash.njk" %}
   <ul class="providers">
   {%for provider in providers %}
     <li class="provider">
